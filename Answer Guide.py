@@ -1,3 +1,5 @@
+'''These are answers, feel free to reachout if there is something you don't understand or I amde a mistake so we can both learn'''
+
 def reverse_string(s: str):
     """
     Reverse the input string and return it.
@@ -12,7 +14,8 @@ def reverse_string(s: str):
         "hello" -> "olleh"
     """
     
-
+    s = s[::-1]
+    return s
 
 
 def factorial(n: int):
@@ -29,21 +32,13 @@ def factorial(n: int):
     Example:
         5 -> 120
     """
-    
     if n < 0:
         return None
-    elif n == 0:
+    elif n== 0:
         return 1
     else:
-        num = n * factorial(n-1)
-        return num
-        
-    
-    
-    
-print(factorial(5))
-    
-        
+        return n*factorial(n-1)
+
 
 def fibonacci(n: int):
     """
@@ -59,29 +54,31 @@ def fibonacci(n: int):
     Example:
         7 -> 13
     """
-    
-    numbers = []
-    while n >= 0:
-        if n == 0:
-            return 0
-        elif n == 1:
-            return 1
-        else:
-            for i in range(n+1):
-                if i == 0:
-                    numbers.append(i)
-                elif i == 1:
-                    numbers.append(i)
-                else:
-                    
-                    numbers.append(numbers[i-2]+numbers[i-1])
-                    
-            return numbers[n]
-    else:
+    fib = []
+    num = 0
+    num2 = 0
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    elif n < 0:
         return None
-    
-print(fibonacci(7))           
+            
+    else:
+        for i in range(n+1):
+            if i == 0:
+                fib.append(0)
+            elif i == 1:
+                fib.append(1)
+            else:
+                num =fib[i-2]+fib[i-1]
+                fib.append(num)
+            
+            
+            
+    return num
 
+print(fibonacci(1))
 
 def is_prime(n: int):
     """
@@ -93,7 +90,14 @@ def is_prime(n: int):
     Returns:
         bool: True if prime, False otherwise.
     """
-
+    if n <2:
+        return False
+    else:
+        for i in range(n):
+            if n%i == 0:
+                return False
+            else:
+                return True
 
 
 def sum_digits(n: int):
@@ -241,27 +245,5 @@ def fibonacci_sequence(n: int):
         
     Example:
         5 -> [0,1,1,2,3]
-        
     """
-    
-    numbers = []
-    while n >= 0:
-        if n == 0:
-            return []
-        elif n == 1:
-            numbers.append(0)
-        else:
-            for i in range(n):
-                if i == 0:
-                    numbers.append(i)
-                elif i == 1:
-                    numbers.append(i)
-                else:
-                    
-                    numbers.append(numbers[i-2]+numbers[i-1])
-                    
-            return numbers
-    else:
-        return None
-    
-print(fibonacci_sequence(5))
+    pass
