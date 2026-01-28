@@ -12,7 +12,7 @@ def reverse_string(s: str):
         "hello" -> "olleh"
     """
     
-
+    return s[::-1]
 
 
 def factorial(n: int):
@@ -93,8 +93,29 @@ def is_prime(n: int):
     Returns:
         bool: True if prime, False otherwise.
     """
+    # if n < 2:
+    #     return False
+    # else:
+    #     for i in range(n-1):
 
+                
+    #         if n % i == 0:
+    #             return False
+    #         else:
+    #             return True
 
+    if n < 2:
+        return False
+    elif n == 2 :
+        return True
+    else:
+        for i in range(2,n-1):
+            if n % i == 0:
+                return False
+            else:
+                return True
+
+print(is_prime(3))
 
 def sum_digits(n: int):
     """
@@ -109,7 +130,15 @@ def sum_digits(n: int):
     Example:
         123 -> 6
     """
-    pass
+    num = 0
+    n = str(n)
+    for i in n:
+        if i.isdigit():
+            j = int(i)
+            print(i)
+            num+= j
+        
+    return num
 
 
 def count_words(sentence: str):
@@ -127,7 +156,8 @@ def count_words(sentence: str):
     Example:
         "Hello world" -> 2
     """
-    pass
+    sentence = sentence.split()
+    return len(sentence)
 
 
 def merge_lists_unique(list1: list, list2: list):
@@ -144,7 +174,12 @@ def merge_lists_unique(list1: list, list2: list):
     Example:
         [1,2],[2,3] -> [1,2,3]
     """
-    pass
+    for i in list1:
+       list2.append(i)
+       
+    list2 = set(list2)
+    
+    return [element for element in list2]
 
 
 def most_frequent(lst: list):
@@ -161,7 +196,14 @@ def most_frequent(lst: list):
     Example:
         [1,1,2,3] -> 1
     """
-    pass
+    dictionary = {}
+    
+    for i in lst:
+        dictionary[i] = dictionary.get(i,0)+1
+        
+    for key,value in dictionary.items():
+        if value == max(dictionary.values()):
+            return key
 
 
 def is_anagram(s1: str, s2: str):
@@ -178,7 +220,7 @@ def is_anagram(s1: str, s2: str):
     Example:
         "listen", "silent" -> True
     """
-    pass
+    return True if  sorted(s1.lower().replace(' ','')) == sorted(s2.lower().replace(' ','')) else False
 
 
 def count_even_odd(numbers: list):
@@ -194,7 +236,7 @@ def count_even_odd(numbers: list):
     Example:
         [1,2,3,4] -> (2,2)
     """
-    pass
+    return (sum(1 for i in numbers if i %2 == 0 ),sum(1 for i in numbers if i%2 !=0))
 
 
 def reverse_list(lst: list):
@@ -210,7 +252,7 @@ def reverse_list(lst: list):
     Example:
         [1,2,3] -> [3,2,1]
     """
-    pass
+    return lst[::-1]
 
 
 def square_numbers(numbers: list):
@@ -226,7 +268,7 @@ def square_numbers(numbers: list):
     Example:
         [1,2,3] -> [1,4,9]
     """
-    pass
+    return [i*i for i in numbers]
 
 
 def fibonacci_sequence(n: int):

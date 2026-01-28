@@ -90,16 +90,18 @@ def is_prime(n: int):
     Returns:
         bool: True if prime, False otherwise.
     """
-    if n <2:
+    
+    if n < 2:
         return False
+    
     else:
-        for i in range(n):
-            if n%i == 0:
+        for i in range(2,n-1):
+            if n % i == 0:
                 return False
             else:
                 return True
 
-
+print(is_prime(17))
 def sum_digits(n: int):
     """
     Return the sum of the digits of n.
